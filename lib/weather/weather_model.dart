@@ -38,8 +38,7 @@ class DailyWeather extends Equatable {
 class Weather extends Equatable {
   final WeatherStatus status;
   //температура(в Кельвинах, при отображении переводится в градусы Цельсия), влажность (%), скорость ветра (м/с)
-  final double temp, windSpeed;
-  final int humidity;
+  final double temp, humidity, windSpeed;
   //дата, которой соответствует прогноз в формате строки (гггг-мм-дд чч:мм:сс)
   final String date;
 
@@ -60,14 +59,14 @@ class Weather extends Equatable {
 
   Weather.fromJson(Map<String, dynamic> json)
       : temp = json['main']['temp'],
-        humidity = json['main']['humidity'],
-        windSpeed = json['wind']['speed'],
+        humidity = json['main']['humidity'] + 0.0,
+        windSpeed = json['wind']['speed'] + 0.0,
         date = json['dt_txt'] ?? "Сейчас",
         status = WeatherStatus.success;
 
   Weather copyWith({
     double? temp,
-    int? humidity,
+    double? humidity,
     double? windSpeed,
     String? date,
     WeatherStatus? status,
