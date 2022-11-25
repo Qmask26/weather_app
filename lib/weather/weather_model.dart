@@ -38,7 +38,8 @@ class DailyWeather extends Equatable {
 class Weather extends Equatable {
   final WeatherStatus status;
   //температура(в Кельвинах, при отображении переводится в градусы Цельсия), влажность (%), скорость ветра (м/с)
-  final double temp, humidity, windSpeed;
+  final double temp, windSpeed;
+  final int humidity;
   //дата, которой соответствует прогноз в формате строки (гггг-мм-дд чч:мм:сс)
   final String date;
 
@@ -66,7 +67,7 @@ class Weather extends Equatable {
 
   Weather copyWith({
     double? temp,
-    double? humidity,
+    int? humidity,
     double? windSpeed,
     String? date,
     WeatherStatus? status,
