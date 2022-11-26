@@ -58,7 +58,7 @@ class Weather extends Equatable {
         status = WeatherStatus.empty;
 
   Weather.fromJson(Map<String, dynamic> json)
-      : temp = json['main']['temp'],
+      : temp = json['main']['temp'] + 0.0,
         humidity = json['main']['humidity'] + 0.0,
         windSpeed = json['wind']['speed'] + 0.0,
         date = json['dt_txt'] ?? "Сейчас",
